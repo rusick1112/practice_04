@@ -6,19 +6,50 @@
 </head>
 <body>
 <script>
-function deistvie() {
-            if (arguments.length === 1) {
-    console.log("И что же с " + arguments[0]);
-        } else if (arguments.length === 2) {
-    console.log("И что же с" + arguments[0] + " , " + arguments[1]);
-    } else {
-    console.log("Зачем");
+ class posuda{
+constructor(name,glubina, prozrachnost) {
+  this.name = name;
+ }
+ glb(glubina) {
+  this.glubina = glubina;
+    alert(`${this.name} имеет эту глубину - ${this.glubina}.`);
+  }
+
+  proz(prozrachnost) {
+    this.prozrachnost = prozrachnost;
+    alert(`${this.name} имеет ${this.prozrachnost}% прозрачности`);
   }
 }
- 
-deistvie("сахар");
-deistvie("сахар", "синтаксический сахар"); 
-deistvie("сахар", "синтаксический сахар", "соль"); 
+
+class tarelka extends posuda{
+ glb(glubina) {
+  this.glubina = glubina;
+    alert(`${this.name} имеет эту глубину - ${this.glubina}.`);
+  }
+
+  proz(prozrachnost) {
+    this.prozrachnost = prozrachnost;
+    alert(`${this.name} имеет ${this.prozrachnost}% прозрачности`);
+  }
+}
+
+class miska extends tarelka{
+    glbn() {
+      alert(`${this.name} красивая`);
+  }
+  str() {
+    super.glb(17);
+    this.glbn()
+  }
+
+}
+
+
+let tarelochka = new miska("Тарелка");
+tarelochka.glb(15);
+tarelochka.proz(50);
+tarelochka.str();
+
 </script>
 </body>
 </html>
